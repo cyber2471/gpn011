@@ -31,9 +31,13 @@ export class PrismaService
 
   this.$on('query', (e) => {
     console.log(' ');
-    console.log('\\xlb[34mQuery: \\xlb[0m' + e.query);
-    console.log('\\xlb[32mParams: \\xlb[0m' + e.params);
-    console.log('\\xlb[33m%s\\xlb[0m', 'Duration: ' + e.duration + 'ms');
+    console.log('Query: ' + e.query);
+    console.log('Params: ' + e.params);
+    console.log('Duration: ' + e.duration + 'ms');
+
+    // console.log('\xlb[34mQuery: \xlb[0m' + e.query);
+    // console.log('\xlb[32mParams: \xlb[0m' + e.params);
+    // console.log('\xlb[33m%s\xlb[0m', 'Duration: ' + e.duration + 'ms');
   });
 
   this.$on('error', async (e) => {

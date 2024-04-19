@@ -14,14 +14,37 @@ type UserModel {
   email: String!
 }
 
+"""게시물"""
+type PostModel {
+  """게시물 아이디"""
+  id: Int!
+
+  """제목"""
+  title: String!
+
+  """게시내용"""
+  content: String!
+
+  """게시여부"""
+  published: Boolean!
+
+  """사용자 아이디"""
+  authorId: Int!
+}
+
 type Query {
   """사용자 목록"""
   findManyUserAll: [UserModel!]!
+  PostModelAll: [PostModel!]!
+  PostModel(id: Int!): PostModel!
 }
 
 type Mutation {
   """사용자 등록"""
   createUser(data: UserCreatetDto!): UserModel!
+  createPost(createPostInput: CreatePostInput!): PostModel!
+  updatePost(updatePostInput: UpdatePostInput!): PostModel!
+  removePost(id: Int!): PostModel!
 }
 
 """사용자 등록 DTO"""
@@ -31,4 +54,37 @@ input UserCreatetDto {
 
   """이메일 주소"""
   email: String!
+}
+
+input CreatePostInput {
+  """게시번호"""
+  id: Int!
+
+  """제목"""
+  title: String!
+
+  """게시내용"""
+  content: String!
+
+  """게시여부"""
+  published: Boolean!
+
+  """사용자 아이디"""
+  authorId: Int!
+}
+
+input UpdatePostInput {
+  id: Int!
+
+  """제목"""
+  title: String!
+
+  """게시내용"""
+  content: String!
+
+  """게시여부"""
+  published: Boolean!
+
+  """사용자"""
+  authorId: Int!
 }
