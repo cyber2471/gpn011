@@ -44,7 +44,7 @@ type Mutation {
   createUser(data: UserCreatetDto!): UserModel!
   createPost(createPostInput: CreatePostInput!): PostModel!
   updatePost(updatePostInput: UpdatePostInput!): PostModel!
-  removePost(id: Int!): PostModel!
+  removePost(DeletePostInput: Int!): PostModel!
 }
 
 """사용자 등록 DTO"""

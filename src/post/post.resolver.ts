@@ -29,7 +29,7 @@ export class PostResolver {
   }
 
   @Mutation(() => PostModel)
-  removePost(@Args('id', { type: () => Int }) id: number) {
+  removePost(@Args('DeletePostInput', { type: () => Int }) id: number) {
     return this.postService.remove(id);
   }
 }
